@@ -14,7 +14,7 @@ public class playerBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jump = new Vector3(0f, 10f, 0f);
+        jump = new Vector3(0f, 5f, 0f);
         move = new Vector3(0f,0f,0f);
     }
     void OnCollisionEnter2D(Collision2D collision)
