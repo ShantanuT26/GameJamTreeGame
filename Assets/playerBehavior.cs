@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Animator animator;
     public bool isGrounded = false;
     public Rigidbody2D rb;
     public Vector3 jump;
@@ -16,10 +17,12 @@ public class playerBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         jump = new Vector3(0f, 5f, 0f);
         move = new Vector3(0f,0f,0f);
+        animator.SetBool("grounded", false);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded=true;
+        animator.SetBool("grounded", true);
         Debug.Log("True!");
     }
     // Update is called once per frame
@@ -44,6 +47,7 @@ public class playerBehavior : MonoBehaviour
         {
             rb.AddForce(jump, ForceMode2D.Impulse);
             isGrounded=false;
+            animator.SetBool("grounded", false);
         }
     }
 }
