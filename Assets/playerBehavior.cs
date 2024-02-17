@@ -31,6 +31,12 @@ public class playerBehavior : MonoBehaviour
             move.x=moveDir;
             gameObject.transform.Translate(move);
         }
+        else if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            moveDir=0.05f;
+            move.x=-moveDir;
+            gameObject.transform.Translate(move);
+        }
     }   
     void FixedUpdate()
     {
