@@ -11,6 +11,9 @@ public class playerBehavior : MonoBehaviour
     public Vector3 jump;
     public Vector3 move;
     public float moveDir;
+    public int coinnum;
+    public GameObject coin;
+    public GameObject coinscoretext;
     
     void Start()
     {
@@ -39,6 +42,10 @@ public class playerBehavior : MonoBehaviour
             moveDir=0.05f;
             move.x=-moveDir;
             gameObject.transform.Translate(move);
+        }
+        if(this.transform.position == coin.transform.position)
+        {
+            coinnum++;
         }
     }   
     void FixedUpdate()
