@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class playerBehavior : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class playerBehavior : MonoBehaviour
     public float moveDir;
     public int coinnum;
     public GameObject coin;
-    public GameObject coinscoretext;
+    public TextMeshProUGUI coinscoretext;
     
     void Start()
     {
@@ -21,6 +22,7 @@ public class playerBehavior : MonoBehaviour
         jump = new Vector3(0f, 5f, 0f);
         move = new Vector3(0f,0f,0f);
         animator.SetBool("grounded", false);
+        coinscoretext.text = "";
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,6 +48,7 @@ public class playerBehavior : MonoBehaviour
         if(this.transform.position == coin.transform.position)
         {
             coinnum++;
+            coinscoretext.text=coinnum.ToString();
         }
     }   
     void FixedUpdate()
