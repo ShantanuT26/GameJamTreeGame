@@ -15,12 +15,9 @@ public class circleCoin : MonoBehaviour
     {
         
     }
-    /*void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.compareTag("player"))
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject);
         
-    }*/
+    }
 }
