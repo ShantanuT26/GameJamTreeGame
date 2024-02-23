@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class circleCoin : MonoBehaviour
+public class myscoretext : MonoBehaviour
 {
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +14,6 @@ public class circleCoin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Destroy(gameObject);
-        gameObject.SetActive(false);
-        coincounter.instance.increaseCoins();
-
-        
+        this.transform.position = camera.transform.position;
     }
 }
