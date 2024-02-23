@@ -9,6 +9,7 @@ public class coincounter : MonoBehaviour
     public TMP_Text cointext;   
     public static coincounter instance;
     public int currentCoins = 0;
+    public Camera mainCamera;
 
 void Awake()
 {
@@ -24,5 +25,15 @@ public void increaseCoins()
 {
     currentCoins++;
     cointext.text = "Coins: " + currentCoins.ToString();
+}
+void LateUpdate()
+{
+    float screenWidth = Screen.width;
+    float screenHeight = Screen.height;
+    Vector3 cameraPosition = mainCamera.transform.position;
+    RectTransform rectTransform = cointext.rectTransform;
+    rectTransform.anchoredPosition = new Vector2(0f, screenHeight);
+    Vector3 screenPosition = mainCamera.WorldToScreenPoint(cameraPosition);
+    rectTransform.anchoredPosition = new Vector2(screenPosition.x / screenWidth, 1f - (screenPosition.y / screenHeight));
 }
 }
