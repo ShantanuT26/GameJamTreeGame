@@ -19,7 +19,6 @@ public class circleCoin : MonoBehaviour
     {
         //Destroy(gameObject);
         gameObject.SetActive(false);
-        coincounter.instance.increaseCoins();
 
         
     }
